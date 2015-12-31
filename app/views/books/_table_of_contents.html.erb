@@ -1,0 +1,14 @@
+<h1>Table of Contents</h1>
+
+<p>
+  <% book.book_components.ordered.each do |book_component| %>
+    <% unless book_component.section_type == 'section' %>
+      <%= "#{book_component.chapter_number}." if book_component.chapter_number.present? %>
+      <%= link_to book_component.name, book_component %>
+      <%= link_to( 'edit', edit_book_component_path(book_component), class: 'btn btn-default') if current_user && current_user.has_role?('write_books') %><br />
+    <% else # no links for section headers %>
+      <%= book_component.name %>
+      <%= link_to( 'edit', edit_book_component_path(book_component), class: 'btn btn-default') if current_user && current_user.has_role?('write_books') %><br /><br />
+    <% end %>
+  <% end %>
+</p>

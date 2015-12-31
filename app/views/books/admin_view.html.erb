@@ -1,0 +1,34 @@
+<%= render 'metas', book: @book %>
+<%= render 'books/header' %>
+
+<h1><%= @book.title %></h1>
+
+<h2>Public Description</h2>
+<p><%= @book.description %></p>
+
+<table class='table table-striped'>
+  <tbody>
+    <% @book.book_components.ordered.each do |book_component| %>
+      <tr></tr>
+      <td><%= book_component.section_type %></td>
+      <td><%= "#{book_component.chapter_number}. " if book_component.chapter_number.present? %><%= book_component.name %></td>
+      <td>
+        <% if book_component.published_at %>
+          <span class="glyphicon glyphicon-ok"></span>&nbsp;<%= link_to 'unpublish', unpublish_book_component_path(book_component), class: 'btn btn-xs btn-default', method: :post %>
+        <% else %>
+          <span class="glyphicon glyphicon-remove"></span>&nbsp;<%= link_to 'publish', publish_book_component_path(book_component), class: 'btn btn-xs btn-default', method: :post %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to("<span class='glyphicon glyphicon-eye_open'></span> view".html_safe, book_component, class: 'btn btn-xs btn-default') unless book_component.section_type == 'section' %><%= link_to "<span class='glyphicon glyphicon-pencil'></span> edit".html_safe, edit_book_component_path(book_component), class: 'btn btn-xs btn-primary' %><%= link_to "<span class='glyphicon glyphicon-trash'></span> delete".html_safe, book_component, method: :delete, data: { confirm: 'are you sure?' }, class: 'btn btn-xs btn-danger' %>
+      </td>
+    <% end %>
+  </tbody>
+</table>
+
+<p><%= link_to "<span class='glyphicon glyphicon-plus'></span> New Chapter".html_safe, new_book_component_path( book_id: @book.id ), class: 'btn btn-default' %></p>
+
+<h2>Private Author Notes</h2>
+<%= raw @book.author_notes %>
+
+<%= render 'shared/admin_sidebar' %>

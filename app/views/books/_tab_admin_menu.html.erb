@@ -1,0 +1,8 @@
+<ul class="nav nav-tabs" id="admin-menu-tab">
+  <%= content_tag :li, link_to(t('new'), new_book_path), ({ class: 'active' } if controller.controller_name.to_s == 'books' && controller.action_name.to_s == 'new' ) %>
+  <%= content_tag :li, link_to(t('list'), books_path), ({ class: 'active' } if controller.controller_name.to_s == 'books' && controller.action_name.to_s == 'index' ) %>
+  <%= content_tag :li, link_to(t('edit'), '#'), ({ class: 'active' }) if controller.controller_name.to_s == 'books' && controller.action_name.to_s == 'edit' %>
+  <%= content_tag :li, link_to('admin view', '#'), ({ class: 'active' }) if controller.controller_name.to_s == 'books' && controller.action_name.to_s == 'admin_view' %>
+  <%= content_tag :li, link_to('new chapter', '#'), ({ class: 'active' }) if controller.controller_name.to_s == 'book_components' && controller.action_name.to_s == 'new' %>
+  <%= content_tag :li, link_to('edit a chapter', '#'), ({ class: 'active' }) if controller.controller_name.to_s == 'book_components' && controller.action_name.to_s == 'edit' %>
+</ul>
