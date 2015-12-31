@@ -5,6 +5,7 @@ class BookComponentsController < ApplicationController
 
   def show
     @book_component = BookComponent.find(params[:id])
+    @book = @book_component.book
     render layout: 'book'
   end
 

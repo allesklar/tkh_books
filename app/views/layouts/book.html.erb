@@ -27,15 +27,9 @@
 
       <div class="row" id="site-header">
         <div id='big-header' class="col-xs-12">
-          <h1>
-            <% if @book.present? %>
-              <%= @book.title %>
-            <% elsif @book_component.present? %>
-              <%= @book_component.book.try(:title) %>
-            <% else %>
-              No book title given
-            <% end %>
-          </h1>
+          <h1 id="book-title"><%= @book.title %></h1>
+          <h2 id="book-subtitle"><%= @book.subtitle %></h2>
+          <h2 id="book-author">by <%= @book.author_name %></h2>
         </div>
       </div>
 

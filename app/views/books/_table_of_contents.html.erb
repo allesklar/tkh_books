@@ -1,7 +1,7 @@
-<h1>Table of Contents</h1>
+<h2>Table of Contents</h2>
 
 <p>
-  <% book.book_components.ordered.each do |book_component| %>
+  <% book.book_components.published.ordered.each do |book_component| %>
     <% unless book_component.section_type == 'section' %>
       <%= "#{book_component.chapter_number}." if book_component.chapter_number.present? %>
       <%= link_to book_component.name, book_component %>

@@ -20,7 +20,7 @@
         <% end %>
       </td>
       <td>
-        <%= link_to("<span class='glyphicon glyphicon-eye_open'></span> view".html_safe, book_component, class: 'btn btn-xs btn-default') unless book_component.section_type == 'section' %><%= link_to "<span class='glyphicon glyphicon-pencil'></span> edit".html_safe, edit_book_component_path(book_component), class: 'btn btn-xs btn-primary' %><%= link_to "<span class='glyphicon glyphicon-trash'></span> delete".html_safe, book_component, method: :delete, data: { confirm: 'are you sure?' }, class: 'btn btn-xs btn-danger' %>
+        <%= link_to("<span class='glyphicon glyphicon-eye-open'></span> view".html_safe, book_component, class: 'btn btn-xs btn-default') unless book_component.section_type == 'section' %><%= link_to "<span class='glyphicon glyphicon-pencil'></span> edit".html_safe, edit_book_component_path(book_component), class: 'btn btn-xs btn-primary' %><%= link_to "<span class='glyphicon glyphicon-trash'></span> delete".html_safe, book_component, method: :delete, data: { confirm: 'are you sure?' }, class: 'btn btn-xs btn-danger' %>
       </td>
     <% end %>
   </tbody>
