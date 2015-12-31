@@ -56,7 +56,7 @@ class BookComponentsController < ApplicationController
     book_component = BookComponent.find(params[:id])
     book_component.published_at = Time.now
     if book_component.save
-      redirect_to book_components_path, notice: "The book component has been published."
+      redirect_to admin_view_book_path(book_component.book), notice: "The book component has been published."
     else
       redirect_to :back, flash: { error: 'There was a problem while publishing this book component.' }
     end
@@ -66,7 +66,7 @@ class BookComponentsController < ApplicationController
     book_component = BookComponent.find(params[:id])
     book_component.published_at = nil
     if book_component.save
-      redirect_to book_components_path, notice: "The book component has been unpublished and is a draft again."
+      redirect_to admin_view_book_path(book_component.book), notice: "The book component has been unpublished and is a draft again."
     else
       redirect_to :back, flash: { error: 'There was a problem while unpublishing this book component.' }
     end
