@@ -72,6 +72,13 @@ class BookComponentsController < ApplicationController
     end
   end
 
+  def sort
+    params[:book_component].each_with_index do |id, index|
+      BookComponent.update(id, position: index+1)
+    end
+    render nothing: true
+  end
+
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
