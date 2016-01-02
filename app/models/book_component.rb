@@ -1,6 +1,6 @@
 class BookComponent < ActiveRecord::Base
 
-  enum section_type: [ :preface, :introduction, :section, :chapter ]
+  enum section_type: [ :preface, :acknowledgements, :introduction, :section, :chapter ]
 
   belongs_to :book, touch: true
 
