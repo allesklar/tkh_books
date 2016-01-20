@@ -6,10 +6,10 @@
       <% unless book_component.section_type == 'section' %>
         <li><%= "#{book_component.chapter_number}." if book_component.chapter_number.present? %>
                 <%= link_to book_component.name, book_component %>
-                <%= link_to( 'edit', edit_book_component_path(book_component), class: 'btn btn-default') if current_user && current_user.is_allowed_to?('write_books') %></li>
+                <%= link_to( "<span class='glyphicon glyphicon-pencil'></span> edit".html_safe, edit_book_component_path(book_component), class: 'btn btn-xs btn-default') if current_user && current_user.is_allowed_to?('write_books') %></li>
       <% else # no links for section headers %>
         <li class="section-type"><%= book_component.name %>
-                <%= link_to( 'edit', edit_book_component_path(book_component), class: 'btn btn-default') if current_user && current_user.is_allowed_to?('write_books') %></li>
+                <%= link_to( "<span class='glyphicon glyphicon-pencil'></span> edit".html_safe, edit_book_component_path(book_component), class: 'btn btn-xs btn-default') if current_user && current_user.is_allowed_to?('write_books') %></li>
       <% end %>
     <% end %>
   </ul>
