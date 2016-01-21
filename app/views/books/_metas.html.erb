@@ -1,6 +1,6 @@
 <% content_for :search_metas do %>
   <!-- General meta info + SEO -->
-  <title><%= book.title %></title>
+  <title><%= "Book: #{book.title}" %></title>
   <meta name="description" content="<%= book.description %>" />
   <% content_for :canonical_link, link_to('', book, rel: 'canonical') %>
 <% end %>

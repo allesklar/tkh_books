@@ -1,4 +1,4 @@
-<%= render 'metas', book: @book %>
+<% content_for :meta_title, "#{@book.title} - admin view".html_safe %>
 <%= render 'books/header' %>
 
 <h1><%= @book.title %></h1>
