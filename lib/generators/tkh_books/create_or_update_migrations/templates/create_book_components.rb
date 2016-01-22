@@ -6,7 +6,6 @@ class CreateBookComponents < ActiveRecord::Migration
       t.text     :description
       t.text     :body
       t.integer  :section_type
-      t.integer  :chapter_number
       t.integer  :position, default: 0
       t.datetime :published_at
       t.timestamps

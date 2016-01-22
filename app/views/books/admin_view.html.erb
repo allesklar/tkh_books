@@ -12,7 +12,7 @@
       <tr id="book_component_<%= book_component.id %>">
         <td>
           <%= image_tag 'admin/drag-handle.gif', class: 'handle' %>
-          <%= "#{book_component.chapter_number}. " if book_component.chapter_number.present? %><%= book_component.name %></td>
+          <%= "#{book_component.chapter_number}. " if book_component.chapter? %><%= book_component.name %></td>
         <td>
           <% if book_component.published_at %>
             <span class="glyphicon glyphicon-ok"></span>&nbsp;<%= link_to 'unpublish', unpublish_book_component_path(book_component), class: 'btn btn-xs btn-default', method: :post %>

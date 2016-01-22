@@ -10,6 +10,7 @@ class BookComponent < ActiveRecord::Base
 
   scope :published, -> { where('published_at IS NOT ?', nil) }
   scope :drafts, -> { where('published_at IS ?', nil) }
+
   scope :ordered, -> { order('position') }
 
   ### autocomplete related instance methods
@@ -22,6 +23,16 @@ class BookComponent < ActiveRecord::Base
     else
       self.book_id = nil
     end
+  end
+
+  def chapter_number
+    chapter_number = 0
+    if section_type == 'chapter'
+      self.book.book_components.chapter.ordered.each_with_index do |chapter, index|
+        chapter_number = (index + 1) if self.id == chapter.id
+      end
+    end
+    chapter_number
   end
 
 end

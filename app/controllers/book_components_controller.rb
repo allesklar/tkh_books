@@ -83,7 +83,7 @@ class BookComponentsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def book_component_params
-    params.require(:book_component).permit( :book_title, :name, :description, :body, :section_type, :chapter_number )
+    params.require(:book_component).permit( :book_title, :name, :description, :body, :section_type )
   end
 
 end
