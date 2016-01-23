@@ -1,7 +1,11 @@
 <%= render 'metas', book_component: @book_component %>
 
 <p id="internal-links"><%= link_to "<span class='glyphicon glyphicon-list'></span> table of contents".html_safe, "#table-of-contents", class: 'btn btn-default' %></p>
-<h1><%= @book_component.name %></h1>
+
+<h1>
+  <%= content_tag :span, "Chapter #{@book_component.chapter_number}<br />".html_safe, id: 'chapter-number' if @book_component.chapter? %>
+  <%= @book_component.name %>
+</h1>
 
 <p><%= raw @book_component.body %></p>
 
