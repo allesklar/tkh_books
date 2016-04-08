@@ -28,7 +28,11 @@ class BookComponentsController < ApplicationController
       @book_component.position = 1
     end
     if @book_component.save
-      redirect_to admin_view_book_path(@book_component.book), notice: "The book component was successfully created."
+      unless @book_component.section_type == 'section'
+        redirect_to @book_component, notice: "The book component was successfully created."
+      else
+        redirect_to admin_view_book_path(@book_component.book), notice: "The book component was successfully created."
+      end
     else
       flash[:warning] = "There was a problem saving this book component."
       render action: "new", layout: 'admin'
@@ -38,7 +42,11 @@ class BookComponentsController < ApplicationController
   def update
     @book_component = BookComponent.find(params[:id])
     if @book_component.update_attributes( book_component_params )
-      redirect_to admin_view_book_path(@book_component.book), notice: "The book component was successfully saved."
+      unless @book_component.section_type == 'section'
+        redirect_to @book_component, notice: "The book component was successfully saved."
+      else
+        redirect_to admin_view_book_path(@book_component.book), notice: "The book component was successfully saved."
+      end
     else
       flash[:warning] = "There was a problem saving this book component."
       render action: "edit", layout: 'admin'
