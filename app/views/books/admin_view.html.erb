@@ -12,7 +12,7 @@
       <tr id="book_component_<%= book_component.id %>">
         <td>
           <%= image_tag 'admin/drag-handle.gif', class: 'handle' %>
-          <%= "#{book_component.chapter_number}. " if book_component.chapter? %><%= book_component.name %></td>
+          <%= "#{book_component.chapter_number}. " if book_component.chapter? %><%= book_component.section_type != 'section' ? link_to( book_component.name, book_component) : book_component.name %></td>
         <td>
           <% if book_component.published_at %>
             <span class="glyphicon glyphicon-ok"></span>&nbsp;<%= link_to 'unpublish', unpublish_book_component_path(book_component), class: 'btn btn-xs btn-default', method: :post %>
@@ -21,7 +21,7 @@
           <% end %>
         </td>
         <td>
-          <%= link_to("<span class='glyphicon glyphicon-eye-open'></span> view".html_safe, book_component, class: 'btn btn-xs btn-default') unless book_component.section_type == 'section' %><%= link_to "<span class='glyphicon glyphicon-pencil'></span> edit".html_safe, edit_book_component_path(book_component), class: 'btn btn-xs btn-primary' %><%= link_to "<span class='glyphicon glyphicon-trash'></span> delete".html_safe, book_component, method: :delete, data: { confirm: 'are you sure?' }, class: 'btn btn-xs btn-danger' %>
+          <%= link_to "<span class='glyphicon glyphicon-pencil'></span> edit".html_safe, edit_book_component_path(book_component), class: 'btn btn-xs btn-primary' %><%= link_to "<span class='glyphicon glyphicon-trash'></span> delete".html_safe, book_component, method: :delete, data: { confirm: 'are you sure?' }, class: 'btn btn-xs btn-danger' %>
           <%= book_component.section_type %>
         </td>
       </tr>
