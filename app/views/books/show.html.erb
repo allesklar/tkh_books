@@ -3,3 +3,5 @@
 <p><%= @book.description %></p>
 
 <%= render 'table_of_contents', book: @book %>
+<%= content_tag :p, link_to("<span class='glyphicon glyphicon-eye-open'></span> admin view".html_safe, admin_view_book_path(@book), class: 'btn btn-default') if current_user && current_user.is_allowed_to?('write_books') %>
+

@@ -10,3 +10,4 @@
 <p><%= raw @book_component.body %></p>
 
 <%= render 'books/table_of_contents', book: @book_component.book %>
+<%= content_tag :p, link_to("<span class='glyphicon glyphicon-eye-open'></span> admin view".html_safe, admin_view_book_path(@book_component.book), class: 'btn btn-default') if current_user && current_user.is_allowed_to?('write_books') %>
