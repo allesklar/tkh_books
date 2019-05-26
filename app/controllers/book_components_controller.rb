@@ -1,6 +1,6 @@
 class BookComponentsController < ApplicationController
 
-  before_filter :authenticate,                              except: [ :show ]
+  before_action :authenticate,                              except: [ :show ]
   before_action -> { require_permission_to 'write_books'},  except: [ :show ]
 
   def show
