@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "tkh_books"
   spec.version       = TkhBooks::VERSION
   spec.authors       = ["Swami Atma"]
-  spec.email         = ["swami@TenThousandHours.eu"]
+  spec.email         = ["swamiatma@yoga108.org"]
 
   spec.summary       = %q{A Rails engine to create the resources necessary to create an online, HTML book.}
   spec.description   = %q{This Rails engine can easily integrate with the tkh_cms gem suite and allows the user to create online, HTML books.}
@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.10"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "bundler"
+  spec.add_development_dependency "rake"
   spec.add_development_dependency "minitest"
 end
