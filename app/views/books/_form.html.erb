@@ -13,7 +13,15 @@
 
     <%= f.input :author_notes,
                 hint: "Only seen by author or editor. Can be used to map out the table of contents",
-                input_html: { rows: 35, class: 'ckeditor' } %>
+                input_html: { class: 'tinymce' } %>
+    <%= tinymce selector: 'textarea.tinymce',
+                branding: false,
+                # context_menu: "link image imagetools table spellchecker",
+                height: 550,
+                menubar: false, # hiding menu items duplicating icons
+                plugins: "lists link image code fullscreen",
+                toolbar: "formatselect bold italic strikethrough | bullist numlist | alignleft aligncenter alignright alignnone | link unlink image | undo redo selectall code fullscreen"
+    %>
 
     <%= f.button :submit, class: 'btn btn-primary' %>
 
